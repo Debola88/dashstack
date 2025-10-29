@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import DashboardHeader from "./header";
 import DashboardSidebar from "./sidebar";
@@ -9,8 +9,8 @@ const DashboardLayout = () => {
 
   return (
     <React.Fragment>
-      <DashboardHeader />
       <DashboardSidebar />
+      <DashboardHeader />
     </React.Fragment>
   );
 };

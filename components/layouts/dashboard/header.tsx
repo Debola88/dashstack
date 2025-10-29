@@ -17,7 +17,7 @@ export default function DashboardHeader({
 }) {
   return (
     <header
-      className={`sticky top-0 z-30 ${
+      className={`sticky top-0 mx-auto ${
         darkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"
       } border-b`}
     >
@@ -46,7 +46,7 @@ export default function DashboardHeader({
             </Badge>
             <IoNotifications className="text-2xl text-[#3D42DF]"/>
           </div>
-          
+
         </div>
       </div>
     </header>
