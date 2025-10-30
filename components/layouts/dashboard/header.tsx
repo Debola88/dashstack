@@ -17,9 +17,9 @@ export default function DashboardHeader({
 }) {
   return (
     <header
-      className={`sticky top-0 mx-auto ${
+      className={`sticky top-0 z-30 ${
         darkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"
-      } border-b`}
+      } ${sidebarOpen ? 'pl-0' : 'pl-[250px]'} border-b`}
     >
       <div className="flex items-center justify-between h-16 px-6">
         <div className="flex items-center space-x-4">
