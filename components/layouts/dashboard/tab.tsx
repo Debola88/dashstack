@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ReactNode } from "react";
-import { IconType } from "react-icons/lib";
+// import { IconType } from "react-icons/lib";
 
 interface props {
   icon: ReactNode;
@@ -11,7 +11,7 @@ export default function DashbordTab({ icon, title }: props) {
   return (
     <div className="w-full flex justify-center relative group group-active:">
       <span
-        className="h-10 w-12 absolute -ml-72 rounded-lg 
+        className="h-10 w-12 absolute -ml-67 rounded-lg 
         group-hover:bg-[#4880FF] 
         group-hover:text-white
         group-active:bg-[#4880FF] 

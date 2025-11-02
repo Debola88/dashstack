@@ -9,8 +9,12 @@ import { LuRows3 } from "react-icons/lu";
 import { Separator } from "@/components/ui/separator";
 import { CiGift } from "react-icons/ci";
 import { IoCalendarOutline } from "react-icons/io5";
-
-
+import { IoPeopleOutline } from "react-icons/io5";
+import { BsCashStack } from "react-icons/bs";
+import { LiaChartBarSolid } from "react-icons/lia";
+import { AiOutlineUser } from "react-icons/ai";
+import { LiaTableSolid } from "react-icons/lia";
+import { LiaClipboard } from "react-icons/lia";
 
 const tabOne = [
   { title: "Dashboard", icon: <RiDashboard3Line /> },
@@ -24,11 +28,11 @@ const tabOne = [
 const tabTwo = [
   { title: "Pricing", icon: <CiGift /> },
   { title: "Calendar", icon: <IoCalendarOutline /> },
-  { title: "To-Do", icon: <MdFavoriteBorder /> },
-  { title: "Contact", icon: <TiMessages /> },
-  { title: "Invoice", icon: <TbListCheck /> },
-  { title: "UI Elements", icon: <LuRows3 /> },
-  { title: "Team", icon: <LuRows3 /> },
+  { title: "To-Do", icon: <LiaClipboard /> },
+  { title: "Contact", icon: <IoPeopleOutline /> },
+  { title: "Invoice", icon: <BsCashStack /> },
+  { title: "UI Elements", icon: <LiaChartBarSolid /> },
+  { title: "Team", icon: <AiOutlineUser /> },
   { title: "Table", icon: <LuRows3 /> },
 ];
 
@@ -68,12 +72,13 @@ export default function DashboardSidebar({
         ))}
       </div>
       <Separator className="my-4 text-[#D8D8D8]" />
-      <p className="text-gray-500 font-semibold text-sm text-start">PAGES</p>
+      <p className="text-gray-500 font-semibold text-sm text-start bg-red-500 w-full">PAGES</p>
       <div className="pt-4 space-y-1">
         {tabTwo.map((tab, index) => (
           <DashbordTab key={index} title={tab.title} icon={tab.icon} />
         ))}
       </div>
+      <Separator className="my-4 text-[#D8D8D8]" />
     </aside>
   );
 }
