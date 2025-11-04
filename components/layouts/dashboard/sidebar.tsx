@@ -15,6 +15,10 @@ import { LiaChartBarSolid } from "react-icons/lia";
 import { AiOutlineUser } from "react-icons/ai";
 import { LiaTableSolid } from "react-icons/lia";
 import { LiaClipboard } from "react-icons/lia";
+import { IoSettingsOutline } from "react-icons/io5";
+import { CiPower } from "react-icons/ci";
+
+
 
 const tabOne = [
   { title: "Dashboard", icon: <RiDashboard3Line /> },
@@ -33,7 +37,12 @@ const tabTwo = [
   { title: "Invoice", icon: <BsCashStack /> },
   { title: "UI Elements", icon: <LiaChartBarSolid /> },
   { title: "Team", icon: <AiOutlineUser /> },
-  { title: "Table", icon: <LuRows3 /> },
+  { title: "Table", icon: <LiaTableSolid /> },
+];
+
+const tabThree = [
+  { title: "Settings", icon: <IoSettingsOutline /> },
+  { title: "Logout", icon: <CiPower /> },
 ];
 
 export default function DashboardSidebar({
@@ -72,13 +81,22 @@ export default function DashboardSidebar({
         ))}
       </div>
       <Separator className="my-4 text-[#D8D8D8]" />
-      <p className="text-gray-500 font-semibold text-sm text-start bg-red-500 w-full">PAGES</p>
+      <div className="flex justify-center">
+        <p className="text-gray-500 font-semibold text-sm flex items-end justify-left w-3/4 px-3">
+          PAGES
+        </p>
+      </div>
       <div className="pt-4 space-y-1">
         {tabTwo.map((tab, index) => (
           <DashbordTab key={index} title={tab.title} icon={tab.icon} />
         ))}
       </div>
       <Separator className="my-4 text-[#D8D8D8]" />
+      <div className="pt-4 space-y-1">
+        {tabThree.map((tab, index) => (
+          <DashbordTab key={index} title={tab.title} icon={tab.icon} />
+        ))}
+      </div>
     </aside>
   );
 }
