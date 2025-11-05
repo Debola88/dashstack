@@ -1,4 +1,3 @@
-import React from "react";
 import DashbordTab from "./tab";
 import { RiDashboard3Line } from "react-icons/ri";
 import { MdFavoriteBorder } from "react-icons/md";
@@ -57,7 +56,7 @@ export default function DashboardSidebar({
       className={`fixed top-0 z-40 h-screen transition-transform duration-300 overflow-y-auto ${
         sidebarOpen ? "transition-x-0" : "-transition-x-full"
       } ${
-        darkMode ? "bg-gray-800 border-gray-700" : "bg-white boarder-gray-200"
+        darkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"
       } border-r`}
       style={{ width: "250px" }}
     >
@@ -92,7 +91,7 @@ export default function DashboardSidebar({
         ))}
       </div>
       <Separator className="my-4 text-[#D8D8D8]" />
-      <div className="pt-4 space-y-1">
+      <div className="py-4 space-y-1">
         {tabThree.map((tab, index) => (
           <DashbordTab key={index} title={tab.title} icon={tab.icon} />
         ))}

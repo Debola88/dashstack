@@ -7,7 +7,6 @@ import { SearchIcon } from "lucide-react";
 import { AiOutlineMenuUnfold, AiOutlineMenuFold } from "react-icons/ai";
 import { IoNotifications } from "react-icons/io5";
 import { Badge } from "@/components/ui/badge";
-import React from "react";
 
 export default function DashboardHeader({
   sidebarOpen,
@@ -18,8 +17,8 @@ export default function DashboardHeader({
   return (
     <header
       className={`sticky top-0 z-30 ${
-        darkMode ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"
-      } ${sidebarOpen ? 'pl-0' : 'pl-[250px]'} border-b`}
+        darkMode ? "bg-gray-800" : "bg-white"
+      } ${sidebarOpen ? 'pl-0' : 'pl-[250px]'} shadow`}
     >
       <div className="flex items-center justify-between h-16 px-6">
         <div className="flex items-center space-x-4">
