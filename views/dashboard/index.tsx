@@ -1,0 +1,16 @@
+export default function DashboardView() {
+  return (
+    <div>
+      <div className="flex flex-1 flex-col bg-red-500">
+        <div className="@container/main flex flex-1 flex-col gap-2">
+          <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+            {/* <SectionCards /> */}
+            dhgbdhgcfybveyhdwebv
+            <div className="px-4 lg:px-6">{/* <ChartAreaInteractive /> */}</div>
+            {/* <DataTable data={data} /> */}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,4 +1,5 @@
-import DashboardSidebar from "./sidebar";
+import DashboardHeader from "@/components/layouts/dashboard/header";
+import DashboardSidebar from "@/components/layouts/dashboard/sidebar";
 
 export default function DashboardLayout({ children }) {
   return (
@@ -6,10 +7,8 @@ export default function DashboardLayout({ children }) {
       <DashboardSidebar />
 
       <div className="flex-1 ml-[250px]">
-        {" "}
-        {/* pushes main content to the right */}
         <DashboardHeader />
-        <main className="p-6">{children}</main>
+        <main className="p-6 ">{children}</main>
       </div>
     </div>
   );

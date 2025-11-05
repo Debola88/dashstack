@@ -1,3 +1,4 @@
+'use client'
 import {
   InputGroup,
   InputGroupAddon,
@@ -18,7 +19,7 @@ export default function DashboardHeader({
     <header
       className={`sticky top-0 z-30 ${
         darkMode ? "bg-gray-800" : "bg-white"
-      } ${sidebarOpen ? 'pl-0' : 'pl-[250px]'} shadow`}
+      } ${sidebarOpen ? 'pl-0' : ''} shadow`}
     >
       <div className="flex items-center justify-between h-16 px-6">
         <div className="flex items-center space-x-4">
