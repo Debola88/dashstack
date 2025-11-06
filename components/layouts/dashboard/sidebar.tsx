@@ -49,7 +49,6 @@ const tabThree = [
 export default function DashboardSidebar() {
   const { isOpen, closeSidebar } = useSidebar();
 
-  // Close sidebar on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
@@ -61,7 +60,6 @@ export default function DashboardSidebar() {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen, closeSidebar]);
 
-  // Prevent body scroll when mobile sidebar is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -75,7 +73,6 @@ export default function DashboardSidebar() {
 
   return (
     <>
-      {/* Backdrop/Overlay for mobile */}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-20 md:hidden"
@@ -84,13 +81,16 @@ export default function DashboardSidebar() {
         />
       )}
 
-      {/* Sidebar */}
       <aside
         className={clsx(
-          "fixed md:static top-0 left-0 z-30 h-screen shrink-0 w-[250px] transform transition-transform duration-300 overflow-y-auto dark:bg-gray-800 dark:border-gray-700 bg-white border-r border-gray-200 dark:border-r-gray-700",
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          "fixed md:relative top-0 left-0 z-30 h-screen shrink-0  transform transition-transform duration-300 overflow-y-auto dark:bg-gray-800 dark:border-gray-700 bg-white border-gray-200 dark:border-r-gray-700",
+          isOpen ? "translate-x-0 w-[250px]" : "-translate-x-full md:translate-x-0 md:w-0 md:border-r-0"
         )}
       >
+        <div className={clsx(
+          "w-[250px]",
+          !isOpen && "md:hidden"
+        )}></div>
         <div className="flex items-center justify-center h-16 w-full border-gray-200 dark:border-gray-700">
           <div className="flex items-center">
             <span className="text-[#4880FF] max-md:text-lg font-bold text-2xl">
