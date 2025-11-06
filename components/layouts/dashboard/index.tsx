@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
 import DashboardSidebar from "./sidebar";
+import DashboardHeader from "./header";
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <div className="flex">
       <DashboardSidebar />

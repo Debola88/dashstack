@@ -9,7 +9,7 @@ interface props {
 
 export default function DashbordTab({ icon, title }: props) {
   return (
-    <div className="w-full flex justify-center relative group group-active:">
+    <nav className="w-full flex justify-center relative group group-active:">
       <span
         className="h-10 w-12 absolute -ml-67 rounded-lg 
         group-hover:bg-[#4880FF] 
@@ -28,6 +28,6 @@ export default function DashbordTab({ icon, title }: props) {
       >
         {icon} {title}
       </Button>
-    </div>
+    </nav>
   );
 }
