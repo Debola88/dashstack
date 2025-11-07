@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import DashbordTab from "./tab";
 import { RiDashboard3Line } from "react-icons/ri";
 import { MdFavoriteBorder } from "react-icons/md";
@@ -75,7 +75,7 @@ export default function DashboardSidebar() {
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-20 md:hidden"
+          className="fixed inset-0 h-full bg-black/50 z-20 md:hidden"
           onClick={closeSidebar}
           aria-hidden="true"
         />
@@ -83,46 +83,46 @@ export default function DashboardSidebar() {
 
       <aside
         className={clsx(
-          "fixed md:relative top-0 left-0 z-30 h-screen shrink-0  transform transition-transform duration-300 overflow-y-auto dark:bg-gray-800 dark:border-gray-700 bg-white border-gray-200 dark:border-r-gray-700",
-          isOpen ? "translate-x-0 w-[250px]" : "-translate-x-full md:translate-x-0 md:w-0 md:border-r-0"
+          "fixed md:relative top-0 left-0 z-30 h-full md:h-screen shrink-0 transform transition-transform duration-300 overflow-y-auto dark:bg-gray-800 dark:border-gray-700 bg-white border-gray-200 dark:border-r-gray-700",
+          isOpen
+            ? "translate-x-0 w-[250px]"
+            : "-translate-x-full md:translate-x-0 md:w-0 md:border-r-0"
         )}
       >
-        <div className={clsx(
-          "w-[250px]",
-          !isOpen && "md:hidden"
-        )}></div>
-        <div className="flex items-center justify-center h-16 w-full border-gray-200 dark:border-gray-700">
-          <div className="flex items-center">
-            <span className="text-[#4880FF] max-md:text-lg font-bold text-2xl">
-              Dash
-            </span>
-            <span className="font-bold text-2xl max-md:text-lg text-black dark:text-white">
-              Stack
-            </span>
+        <div className={clsx("overflow-x-hidden", !isOpen && "md:hidden")}>
+          <div className="flex items-center justify-center h-16 w-full border-gray-200 dark:border-gray-700">
+            <div className="flex items-center">
+              <span className="text-[#4880FF] max-md:text-lg font-bold text-2xl">
+                Dash
+              </span>
+              <span className="font-bold text-2xl max-md:text-lg text-black dark:text-white">
+                Stack
+              </span>
+            </div>
           </div>
+          <nav className="pt-4 space-y-1">
+            {tabOne.map((tab, index) => (
+              <DashbordTab key={index} title={tab.title} icon={tab.icon} />
+            ))}
+          </nav>
+          <Separator className="my-4 text-[#D8D8D8]" />
+          <div className="flex justify-center">
+            <p className="text-gray-500 font-semibold text-sm flex items-end justify-left w-3/4 px-3">
+              PAGES
+            </p>
+          </div>
+          <nav className="pt-4 space-y-1">
+            {tabTwo.map((tab, index) => (
+              <DashbordTab key={index} title={tab.title} icon={tab.icon} />
+            ))}
+          </nav>
+          <Separator className="my-4 text-[#D8D8D8]" />
+          <nav className="py-4 space-y-1">
+            {tabThree.map((tab, index) => (
+              <DashbordTab key={index} title={tab.title} icon={tab.icon} />
+            ))}
+          </nav>
         </div>
-        <nav className="pt-4 space-y-1">
-          {tabOne.map((tab, index) => (
-            <DashbordTab key={index} title={tab.title} icon={tab.icon} />
-          ))}
-        </nav>
-        <Separator className="my-4 text-[#D8D8D8]" />
-        <div className="flex justify-center">
-          <p className="text-gray-500 font-semibold text-sm flex items-end justify-left w-3/4 px-3">
-            PAGES
-          </p>
-        </div>
-        <nav className="pt-4 space-y-1">
-          {tabTwo.map((tab, index) => (
-            <DashbordTab key={index} title={tab.title} icon={tab.icon} />
-          ))}
-        </nav>
-        <Separator className="my-4 text-[#D8D8D8]" />
-        <nav className="py-4 space-y-1">
-          {tabThree.map((tab, index) => (
-            <DashbordTab key={index} title={tab.title} icon={tab.icon} />
-          ))}
-        </nav>
       </aside>
     </>
   );
