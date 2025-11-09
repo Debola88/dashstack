@@ -1,9 +1,9 @@
-import DashboardView from "@/views/dashboard";
+import DashboardHomeView from "@/views/dashboard/Home";
 
 export default function DashboardPage() {
   return (
     <div>
-      <DashboardView />
+      <DashboardHomeView />
     </div>
   );
 }

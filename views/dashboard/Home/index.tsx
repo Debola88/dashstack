@@ -1,5 +1,8 @@
-export default function DashboardView() {
-  return (
+
+
+
+export default function DashboardHomeView () {
+   return (
     <div>
       <div className="flex flex-1 flex-col ">
         <div className="@container/main flex flex-1 flex-col gap-2">
