@@ -23,9 +23,12 @@ interface SectionCardProps {
 }
 
 
+
+
 export default function SectionCard({title, figure, trend, trendLabel, icon, badgeColor, formatFigure = (value) => value.toString()}: SectionCardProps ) {
 
   const isPositiveTrend = trend >= 0
+  
 
   return (
       <Card className="@container/card">

@@ -3,6 +3,7 @@ import { FaUserFriends } from "react-icons/fa";
 import { RiBox3Fill } from "react-icons/ri";
 import { FaChartLine } from "react-icons/fa6";
 import { PiClockCounterClockwiseBold } from "react-icons/pi";
+import { ChartAreaLinear } from "./_components/chart-area-linear";
 
 const cardInfo = [
   {
@@ -62,7 +63,7 @@ export default function DashboardHomeView() {
               />
             ))}
           </div>
-          <div className="px-4 lg:px-6">{/* <ChartAreaInteractive /> */}</div>
+          <div className="px-4 lg:px-6"><ChartAreaLinear /></div>
           {/* <DataTable data={data} /> */}
         </div>
       </div>

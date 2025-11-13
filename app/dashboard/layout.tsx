@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen">
+      <div className="flex h-screen">
         <DashboardSidebar />
         <div className="flex flex-col flex-1 transition-all duration-300">
           <DashboardHeader />
