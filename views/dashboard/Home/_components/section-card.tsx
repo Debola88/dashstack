@@ -31,7 +31,7 @@ export default function SectionCard({title, figure, trend, trendLabel, icon, bad
   
 
   return (
-      <Card className="@container/card" suppressHydrationWarning>
+      <Card className="@container/card bg-white" suppressHydrationWarning>
         <CardHeader>
           <CardDescription>{title}</CardDescription>
           <CardTitle className="text-2xl max-md:text-xl font-semibold tabular-nums @[250px]/card:text-3xl">

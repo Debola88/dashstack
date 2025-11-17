@@ -4,6 +4,9 @@ import { RiBox3Fill } from "react-icons/ri";
 import { FaChartLine } from "react-icons/fa6";
 import { PiClockCounterClockwiseBold } from "react-icons/pi";
 import { ChartAreaLinear } from "./_components/chart-area-linear";
+import { columns, Deal } from "./_components/table-columns";
+import { DataTable } from "./_components/data-table";
+import image from "@/assets/images/Bitmap (1).png";
 
 const cardInfo = [
   {
@@ -44,12 +47,29 @@ const cardInfo = [
   },
 ];
 
-export default function DashboardHomeView() {
+async function getData(): Promise<Deal[]> {
+  return [
+    {
+      id: "1",
+      productImage: image,
+      productName: "Apple Watch",
+      location: "6096 Marjolaine Landing",
+      dateTime: new Date("2024-01-15T10:30:00"),
+      piece: 423,
+      amount: 34294,
+      status: "Delivered",
+    },
+  ];
+}
+
+export default async function DashboardHomeView() {
+  const data = await getData();
+
   return (
     <div>
       <div className="flex flex-1 flex-col ">
-        <div className="@container/main flex flex-1 flex-col gap-2">
-          <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs lg:px-6 @sm/main:grid-cols-2 @5xl/main:grid-cols-4">
+        <div className="@container/main flex flex-1 flex-col gap-4">
+          <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:shadow-xs lg:px-6 @sm/main:grid-cols-2 @5xl/main:grid-cols-4">
             {cardInfo.map((card, index) => (
               <SectionCard
                 key={index}
@@ -63,8 +83,12 @@ export default function DashboardHomeView() {
               />
             ))}
           </div>
-          <div className="lg:px-6"><ChartAreaLinear /></div>
-          {/* <DataTable data={data} /> */}
+          <div className="lg:px-6">
+            <ChartAreaLinear />
+          </div>
+          <div className="@container/main lg:px-6">
+            <DataTable data={data} columns={columns} />
+          </div>
         </div>
       </div>
     </div>
