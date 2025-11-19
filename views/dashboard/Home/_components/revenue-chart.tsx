@@ -13,30 +13,39 @@ import {
 import {
   ChartConfig,
   ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { TrendingUp } from "lucide-react";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-export const description = "A linear area chart";
+export const description = "An interactive area chart";
 
 const chartData = [
-  { sales: "5k", percent: 0, revenue: 29000 },
-  { sales: "10k", percent: 50, revenue: 24570 },
-  { sales: "15k", percent: 20, revenue: 46840 },
-  { sales: "20k", percent: 50, revenue: 30000 },
-  { sales: "25k", percent: 86, revenue: 64366 },
-  { sales: "30k", percent: 50, revenue: 29000 },
-  { sales: "35k", percent: 40, revenue: 29000 },
-  { sales: "40k", percent: 50, revenue: 29000 },
-  { sales: "45k", percent: 35, revenue: 29000 },
-  { sales: "50k", percent: 44, revenue: 29000 },
-  { sales: "55k", percent: 21, revenue: 29000 },
-  { sales: "60k", percent: 14, revenue: 29000 },
+  { sales: "5k", percent: 0, profit: 5000 },
+  { sales: "10k", percent: 50, profit: 25000 },
+  { sales: "15k", percent: 20, profit: 12000 },
+  { sales: "20k", percent: 50, profit: 28000 },
+  { sales: "25k", percent: 86, profit: 45000 },
+  { sales: "30k", percent: 50, profit: 26000 },
+  { sales: "35k", percent: 40, profit: 22000 },
+  { sales: "40k", percent: 50, profit: 27000 },
+  { sales: "45k", percent: 35, profit: 18000 },
+  { sales: "50k", percent: 44, profit: 24000 },
+  { sales: "55k", percent: 21, profit: 13000 },
+  { sales: "60k", percent: 14, profit: 9000 },
 ];
 
-  const monthList = [
+const monthList = [
   { month: "January", value: "january" },
   { month: "Febuary", value: "febuary" },
   { month: "March", value: "march" },
@@ -49,17 +58,20 @@ const chartData = [
   { month: "October", value: "october" },
   { month: "November", value: "november" },
   { month: "December", value: "december" },
-]
-
+];
 
 const chartConfig = {
-  desktop: {
-    label: "Desktop",
-    color: "var(--chart-1)",
+  profit: {
+    label: "Profit",
+    color: "hsl(var(--chart-1))",
+  },
+  percent: {
+    label: "Percent",
+    color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig;
 
-export function ChartAreaLinear() {
+export function RevenueChart() {
   return (
     <Card className="@container/card" suppressHydrationWarning>
       <CardHeader className="flex justify-between">
@@ -72,16 +84,15 @@ export function ChartAreaLinear() {
             <SelectGroup>
               <SelectLabel>Months</SelectLabel>
               {monthList.map((list, index) => (
-              <SelectItem 
-              key={index}
-              value={list.value}
-              >{list.month}</SelectItem> 
+                <SelectItem key={index} value={list.value}>
+                  {list.month}
+                </SelectItem>
               ))}
             </SelectGroup>
           </SelectContent>
         </Select>
         {/* <CardDescription>
-        </CardDescription> */}
+             </CardDescription> */}
       </CardHeader>
       <CardContent>
         <ChartContainer
@@ -96,24 +107,11 @@ export function ChartAreaLinear() {
               right: 12,
             }}
           >
-            <defs>
-              <linearGradient
-                id="customBlueGradient"
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="1"
-              >
-                <stop offset="5%" stopColor="#42B6F6" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#BFE8FF" stopOpacity={0.2} />
-              </linearGradient>
-            </defs>
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="sales"
               tickLine={false}
               axisLine={false}
-              stroke="#42B6F6"
               tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
             />
@@ -121,22 +119,52 @@ export function ChartAreaLinear() {
               dataKey="percent"
               tickLine={false}
               axisLine={false}
-              stroke="#42B6F6"
+              // stroke="#42B6F6"
               tickMargin={8}
-                // tickFormatter={(value) => value.slice(0, 3)}
+              // tickFormatter={(value) => value.slice(0, 3)}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent indicator="dot" hideLabel />}
+            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+            <defs>
+              {/* <linearGradient id="fillProfit" x1="0" y1="0" x2="0" y2="1">
+                <stop
+                  offset="5%"
+                  stopColor="var(--color-profit)"
+                  stopOpacity={0.8}
+                />
+                <stop
+                  offset="95%"
+                  stopColor="var(--color-profit)"
+                  stopOpacity={0.1}
+                />
+              </linearGradient> */}
+              <linearGradient id="fillPercent" x1="0" y1="0" x2="0" y2="1">
+                <stop
+                  offset="5%"
+                  stopColor="var(--color-percent)"
+                  stopOpacity={0.8}
+                />
+                <stop
+                  offset="95%"
+                  stopColor="var(--color-percent)"
+                  stopOpacity={0.1}
+                />
+              </linearGradient>
+            </defs>
+            <Area
+              dataKey="sales"
+              type="natural"
+              fill="url(#fillProfit)"
+              fillOpacity={0.4}
+              stroke="var(--color-profit)"
             />
             <Area
-              dataKey="percent"
-              type="linear"
-              fill="url(#customBlueGradient)"
-              fillOpacity={1}
-              stroke="#42B6F6"
-              strokeWidth={2}
+              dataKey="profit"
+              type="natural"
+              fill="url(#fillPercent)"
+              fillOpacity={0.4}
+              stroke="var(--color-percent)"
             />
+            <ChartLegend content={<ChartLegendContent />} />
           </AreaChart>
         </ChartContainer>
       </CardContent>

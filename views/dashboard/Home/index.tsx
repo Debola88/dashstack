@@ -7,6 +7,8 @@ import { ChartAreaLinear } from "./_components/chart-area-linear";
 import { columns, Deal } from "./_components/table-columns";
 import { DataTable } from "./_components/data-table";
 import image from "@/assets/images/Bitmap (1).png";
+import { RevenueChart } from "./_components/revenue-chart";
+import CustomerCard from "./_components/customer-card";
 
 const cardInfo = [
   {
@@ -88,6 +90,12 @@ export default async function DashboardHomeView() {
           </div>
           <div className="@container/main lg:px-6">
             <DataTable data={data} columns={columns} />
+          </div>
+          <div className="lg:px-6">
+            <RevenueChart />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-6">
+            <CustomerCard />
           </div>
         </div>
       </div>

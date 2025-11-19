@@ -1,7 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 export type Deal = {
   id: string;
