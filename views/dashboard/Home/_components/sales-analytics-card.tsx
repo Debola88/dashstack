@@ -41,7 +41,7 @@ export default function SalesAnalyticCard() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl">Customer</CardTitle>
+        <CardTitle className="text-2xl">Sales Analytics</CardTitle>
       </CardHeader>
       <CardContent className="w-full">
         <ChartContainer config={chartConfig} className="h-[280px] w-full">
@@ -55,16 +55,6 @@ export default function SalesAnalyticCard() {
               bottom: 10,
             }}
           >
-            {/* <defs>
-              <linearGradient id="fillSales" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#4880FF" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#4880FF" stopOpacity={0.5} />
-              </linearGradient>
-              <linearGradient id="fillProfit" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#00B69B" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#00B69B" stopOpacity={0.05} />
-              </linearGradient>
-            </defs> */}
             <CartesianGrid
               strokeDasharray="3 3"
               stroke="#E5E7EB"
