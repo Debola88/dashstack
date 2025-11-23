@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/card";
 import BasicSwiper from "./swiper";
 import headphone from "@/assets/images/headphones.png";
-import airpod from "@/assets/images/airpods.png";
 import watch from "@/assets/images/Bitmap (1).png";
 import { useState } from "react";
 

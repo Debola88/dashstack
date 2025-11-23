@@ -1,5 +1,4 @@
 
-import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardAction,
@@ -9,7 +8,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { ReactNode } from "react";
-import { IconType } from "react-icons/lib";
 
 
 interface SectionCardProps {
