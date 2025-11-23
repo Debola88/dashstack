@@ -1,15 +1,36 @@
+"use client"
 import {
   Card,
-  CardAction,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import BasicSwiper from "./swiper";
+import headphone from "@/assets/images/headphones.png";
+import airpod from "@/assets/images/airpods.png";
+import watch from "@/assets/images/Bitmap (1).png";
+import { useState } from "react";
+
+const products = [
+  {
+    id: 1,
+    name: "Beats Headphone 2022",
+    price: 89.0,
+    image: headphone,
+  },
+  {
+    id: 2,
+    name: "Apple Watch Series 8",
+    price: 399.0,
+    image: watch,
+  },
+];
 
 export default function FeaturedProduct() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const currentProduct = products[currentIndex];
+
   return (
     <Card className="@container/card bg-white" suppressHydrationWarning>
       <CardHeader>
@@ -18,11 +39,14 @@ export default function FeaturedProduct() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <BasicSwiper />
+        <BasicSwiper products={products} onSlideChange={setCurrentIndex} />
       </CardContent>
-      <CardFooter className="flex-col items-start gap-1.5 text-sm">
-        <div className="line-clamp-1 flex gap-2 font-medium">
-          {/* <IconTrendingDown className="size-4" /> */}
+      <CardFooter className="text-center gap-3 text-sm">
+        <div className="w-full">
+          <h3 className="text-base">{currentProduct.name}</h3>
+          <p className="text-sm font-bold text-[#4880FF]">
+            ${currentProduct.price.toFixed(2)}
+          </p>
         </div>
       </CardFooter>
     </Card>

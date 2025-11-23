@@ -31,18 +31,18 @@ import {
 export const description = "An interactive area chart";
 
 const chartData = [
-  { sales: "5k", percent: 0, profit: 5000 },
-  { sales: "10k", percent: 50, profit: 25000 },
-  { sales: "15k", percent: 20, profit: 12000 },
-  { sales: "20k", percent: 50, profit: 28000 },
-  { sales: "25k", percent: 86, profit: 45000 },
-  { sales: "30k", percent: 50, profit: 26000 },
-  { sales: "35k", percent: 40, profit: 22000 },
-  { sales: "40k", percent: 50, profit: 27000 },
-  { sales: "45k", percent: 35, profit: 18000 },
-  { sales: "50k", percent: 44, profit: 24000 },
-  { sales: "55k", percent: 21, profit: 13000 },
-  { sales: "60k", percent: 14, profit: 9000 },
+  { month: "5k", sales: 28, profit: 35 },
+  { month: "10k", sales: 35, profit: 42 },
+  { month: "15k", sales: 32, profit: 70 },
+  { month: "20k", sales: 45, profit: 35 },
+  { month: "25k", sales: 52, profit: 55 },
+  { month: "30k", sales: 48, profit: 52 },
+  { month: "35k", sales: 95, profit: 58 },
+  { month: "40k", sales: 75, profit: 60 },
+  { month: "45k", sales: 48, profit: 55 },
+  { month: "50k", sales: 65, profit: 65 },
+  { month: "55k", sales: 55, profit: 95 },
+  { month: "60k", sales: 62, profit: 88 },
 ];
 
 const monthList = [
@@ -61,13 +61,13 @@ const monthList = [
 ];
 
 const chartConfig = {
+  sales: {
+    label: "Sales",
+    color: "#FF7F50",
+  },
   profit: {
     label: "Profit",
-    color: "hsl(var(--chart-1))",
-  },
-  percent: {
-    label: "Percent",
-    color: "hsl(var(--chart-2))",
+    color: "#9B7EBD",
   },
 } satisfies ChartConfig;
 
@@ -95,74 +95,63 @@ export function RevenueChart() {
              </CardDescription> */}
       </CardHeader>
       <CardContent>
-        <ChartContainer
-          config={chartConfig}
-          className="aspect-auto h-[250px] w-full"
-        >
+        <ChartContainer config={chartConfig} className="h-[250px] w-full">
           <AreaChart
             accessibilityLayer
             data={chartData}
             margin={{
-              left: 12,
-              right: 12,
+              left: -20,
+              right: 10,
             }}
           >
-            <CartesianGrid vertical={false} />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke="#E5E7EB"
+              vertical={false}
+              opacity={0.5}
+            />
             <XAxis
-              dataKey="sales"
+              dataKey="month"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value.slice(0, 3)}
+              tick={{ fill: "#9CA3AF", fontSize: 12 }}
+              tickFormatter={(value) => value}
             />
             <YAxis
-              dataKey="percent"
               tickLine={false}
               axisLine={false}
-              // stroke="#42B6F6"
               tickMargin={8}
-              // tickFormatter={(value) => value.slice(0, 3)}
+              tick={{ fill: "#9CA3AF", fontSize: 12 }}
+              domain={[0, 100]}
+              ticks={[0, 20, 40, 60, 80, 100]}
             />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <defs>
-              {/* <linearGradient id="fillProfit" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-profit)"
-                  stopOpacity={0.8}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-profit)"
-                  stopOpacity={0.1}
-                />
-              </linearGradient> */}
-              <linearGradient id="fillPercent" x1="0" y1="0" x2="0" y2="1">
-                <stop
-                  offset="5%"
-                  stopColor="var(--color-percent)"
-                  stopOpacity={0.8}
-                />
-                <stop
-                  offset="95%"
-                  stopColor="var(--color-percent)"
-                  stopOpacity={0.1}
-                />
+              <linearGradient id="fillSales" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#FF7F50" stopOpacity={0.8} />
+                <stop offset="100%" stopColor="#FF7F50" stopOpacity={0.2} />
+              </linearGradient>
+              <linearGradient id="fillProfit" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#9B7EBD" stopOpacity={0.8} />
+                <stop offset="100%" stopColor="#9B7EBD" stopOpacity={0.2} />
               </linearGradient>
             </defs>
-            <Area
+             <Area
               dataKey="sales"
-              type="natural"
-              fill="url(#fillProfit)"
-              fillOpacity={0.4}
-              stroke="var(--color-profit)"
+              type="monotone"
+              stroke="#FF7F50"
+              strokeWidth={2}
+              fill="url(#fillSales)"
+              fillOpacity={1}
             />
             <Area
               dataKey="profit"
-              type="natural"
-              fill="url(#fillPercent)"
-              fillOpacity={0.4}
-              stroke="var(--color-percent)"
+              type="monotone"
+              stroke="#9B7EBD"
+              strokeWidth={2}
+              fill="url(#fillProfit)"
+              fillOpacity={1}
             />
             <ChartLegend content={<ChartLegendContent />} />
           </AreaChart>
