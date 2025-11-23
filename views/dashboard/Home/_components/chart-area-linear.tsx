@@ -17,7 +17,15 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart";
 import { TrendingUp } from "lucide-react";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const description = "A linear area chart";
 
@@ -36,7 +44,7 @@ const chartData = [
   { sales: "60k", percent: 14, revenue: 29000 },
 ];
 
-  const monthList = [
+const monthList = [
   { month: "January", value: "january" },
   { month: "Febuary", value: "febuary" },
   { month: "March", value: "march" },
@@ -49,8 +57,7 @@ const chartData = [
   { month: "October", value: "october" },
   { month: "November", value: "november" },
   { month: "December", value: "december" },
-]
-
+];
 
 const chartConfig = {
   desktop: {
@@ -72,10 +79,9 @@ export function ChartAreaLinear() {
             <SelectGroup>
               <SelectLabel>Months</SelectLabel>
               {monthList.map((list, index) => (
-              <SelectItem 
-              key={index}
-              value={list.value}
-              >{list.month}</SelectItem> 
+                <SelectItem key={index} value={list.value}>
+                  {list.month}
+                </SelectItem>
               ))}
             </SelectGroup>
           </SelectContent>
@@ -92,8 +98,8 @@ export function ChartAreaLinear() {
             accessibilityLayer
             data={chartData}
             margin={{
-              left: 12,
-              right: 12,
+              left: -20,
+              right: 10,
             }}
           >
             <defs>
@@ -123,7 +129,7 @@ export function ChartAreaLinear() {
               axisLine={false}
               stroke="#42B6F6"
               tickMargin={8}
-                // tickFormatter={(value) => value.slice(0, 3)}
+              // tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip
               cursor={false}
@@ -136,6 +142,7 @@ export function ChartAreaLinear() {
               fillOpacity={1}
               stroke="#42B6F6"
               strokeWidth={2}
+              dot={{ fill: "#42B6F6", strokeWidth: 2, r: 5 }}
             />
           </AreaChart>
         </ChartContainer>

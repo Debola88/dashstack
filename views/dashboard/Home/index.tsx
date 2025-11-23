@@ -10,6 +10,7 @@ import image from "@/assets/images/Bitmap (1).png";
 import { RevenueChart } from "./_components/revenue-chart";
 import CustomerCard from "./_components/customer-card";
 import FeaturedProduct from "./_components/featured-product";
+import SalesAnalyticCard from "./_components/sales-analytics-card";
 
 const cardInfo = [
   {
@@ -98,6 +99,7 @@ export default async function DashboardHomeView() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-6">
             <CustomerCard />
             <FeaturedProduct />
+            <SalesAnalyticCard />
           </div>
         </div>
       </div>
