@@ -71,9 +71,10 @@ export default async function DashboardHomeView() {
 
   return (
     <div>
+      <h1 className="font-semibold text-2xl lg:px-3 mb-2">Dashboard</h1>
       <div className="flex flex-1 flex-col ">
-        <div className="@container/main flex flex-1 flex-col gap-4">
-          <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:shadow-xs lg:px-6 @sm/main:grid-cols-2 @5xl/main:grid-cols-4">
+        <div className="@container/main flex flex-1 flex-col gap-4 lg:px-3">
+          <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 *:data-[slot=card]:bg-linear-to-t *:data-[slot=card]:shadow-xs @sm/main:grid-cols-2 @5xl/main:grid-cols-4">
             {cardInfo.map((card, index) => (
               <SectionCard
                 key={index}
@@ -87,16 +88,12 @@ export default async function DashboardHomeView() {
               />
             ))}
           </div>
-          <div className="lg:px-6">
             <ChartAreaLinear />
-          </div>
-          <div className="@container/main lg:px-6">
+          <div className="@container/main">
             <DataTable data={data} columns={columns} />
           </div>
-          <div className="lg:px-6">
             <RevenueChart />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <CustomerCard />
             <FeaturedProduct />
             <SalesAnalyticCard />

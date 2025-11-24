@@ -74,7 +74,7 @@ export function RevenueChart() {
   return (
     <Card className="@container/card" suppressHydrationWarning>
       <CardHeader className="flex justify-between">
-        <CardTitle className="lg:text-2xl">Sales Details</CardTitle>
+        <CardTitle className="lg:text-2xl">Revenue</CardTitle>
         <Select>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Month" />
