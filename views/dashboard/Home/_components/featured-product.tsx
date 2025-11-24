@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import BasicSwiper from "./swiper";
+import BasicSwiper from "./home-swiper";
 import headphone from "@/assets/images/headphones.png";
 import watch from "@/assets/images/Bitmap (1).png";
 import { useState } from "react";

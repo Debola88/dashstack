@@ -51,11 +51,11 @@ export default function BasicSwiper({ products, onSlideChange }: SwiperProps) {
         ))}
       </Swiper>
 
-      <button className="swiper-button-prev-custom absolute left-0 top-1/2 z-20 bg-[#E2EAF8] hover:bg-[#E2EAF8]/50 rounded-full p-2 transition-all">
+      <button className="swiper-button-prev-custom absolute left-0 top-1/2 z-20 bg-[#E2EAF8] hover:bg-[#E2EAF8]/50 shadow rounded-full p-2 transition-all">
         <ChevronLeft className="w-6 h-6 text-gray-800" />
       </button>
 
-      <button className="swiper-button-next-custom absolute right-0 top-1/2 z-20 bg-[#E2EAF8] hover:bg-[#E2EAF8]/50 rounded-full p-2 transition-all">
+      <button className="swiper-button-next-custom absolute right-0 top-1/2 z-20 bg-[#E2EAF8] hover:bg-[#E2EAF8]/50 shadow rounded-full p-2 transition-all">
         <ChevronRight className="w-6 h-6 text-gray-800" />
       </button>
     </div>
