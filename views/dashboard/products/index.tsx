@@ -11,7 +11,7 @@ export default function DashboardProductView() {
             
               </div> */}
           <ProductCarousel />
-          <div className="@container/main grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="@container/main grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <ProductSaved/>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
