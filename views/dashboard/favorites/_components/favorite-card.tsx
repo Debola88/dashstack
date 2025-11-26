@@ -1,13 +1,16 @@
+import watch from "@/assets/images/Bitwatch.png";
 import SwiperComponent from "@/components/shared/swiper";
+import { Button } from "@/components/ui/button";
 import { Card, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
-import watch from "@/assets/images/Bitwatch.png";
-import { MdStarRate } from "react-icons/md";
-import { MdStarHalf } from "react-icons/md";
-import { MdStarOutline } from "react-icons/md";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
-import { MdOutlineFavorite } from "react-icons/md";
-import { Button } from "@/components/ui/button";
+import React from "react";
+import {
+  MdOutlineFavoriteBorder,
+  MdStarOutline,
+  MdStarRate,
+  MdOutlineFavorite,
+} from "react-icons/md";
+
 
 const productInfo = [
   {
@@ -21,8 +24,8 @@ const productInfo = [
   },
   {
     id: 2,
-    name: "Apple watch Series 4",
-    price: 120.0,
+    name: "Air-Max-270",
+    price: 60.0,
     ratings: 5,
     peoplerating: 131,
     image1: watch,
@@ -30,7 +33,34 @@ const productInfo = [
   },
   {
     id: 3,
-    name: "Apple watch Series 4",
+    name: "Minimal Chair Tool",
+    price: 24.59,
+    ratings: 5,
+    peoplerating: 132,
+    image1: watch,
+    image2: watch,
+  },
+  {
+    id: 4,
+    name: "Amazfit Vip",
+    price: 75.0,
+    ratings: 5,
+    peoplerating: 132,
+    image1: watch,
+    image2: watch,
+  },
+  {
+    id: 5,
+    name: "Gumbo Mouse",
+    price: 32.0,
+    ratings: 5,
+    peoplerating: 132,
+    image1: watch,
+    image2: watch,
+  },
+  {
+    id: 6,
+    name: "Camera Tripod",
     price: 120.0,
     ratings: 5,
     peoplerating: 132,
@@ -39,9 +69,9 @@ const productInfo = [
   },
 ];
 
-export default function ProductSaved() {
+export default function FavoriteCard() {
   return (
-    <>
+    <React.Fragment>
       {productInfo.map((product) => (
         <Card key={product.id}>
           <SwiperComponent
@@ -78,7 +108,7 @@ export default function ProductSaved() {
                 </p>
               </div>
               <div className="md:p-3 p-1 text-sm rounded-full md:text-lg bg-[#F9F9F9] text-[#F93C65] cursor-pointer">
-                <MdOutlineFavoriteBorder />
+                <MdOutlineFavorite />
               </div>
             </div>
             <div className="flex gap-1 mt-2 max-md:text-sm items-center">
@@ -107,6 +137,6 @@ export default function ProductSaved() {
           </CardFooter>
         </Card>
       ))}
-    </>
+    </React.Fragment>
   );
 }
