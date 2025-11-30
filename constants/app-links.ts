@@ -6,6 +6,8 @@ export enum APP_LINKS {
   DASHBOARD_OVERVIEW = "/dashboard/all-snippet",
   DASHBOARD_FAVORITE = "/dashboard/favorite",
   DASHBOARD_TRASH = "/dashboard/trash",
+  SIGNUP_HOME = "/signup",
+
 
 
 
