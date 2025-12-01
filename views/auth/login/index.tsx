@@ -13,9 +13,43 @@ import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/navigation";
 import { APP_LINKS } from "@/constants/app-links";
+import { useState } from "react";
 
 export default function LoginView() {
   const { push } = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { " Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Login failed");
+        return;
+      }
+
+      router.push("/dashboard");
+      router.refresh();
+    } catch (err) {
+      setError("Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="grid place-items-center min-h-screen w-full bg-[#4880FF] @container/card">
@@ -29,13 +63,16 @@ export default function LoginView() {
           Please enter your email and password to continue
         </CardDescription>
         <CardContent className="w-full p-0 mt-2">
-          <form className="w-full space-y-6">
+          <form onSubmit={handleSubmit} className="w-full space-y-6">
             <div className="space-y-2 text-[#202224]/80">
               <Label>Email address:</Label>
               <Input
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="adebolabadejo11@gmail.com"
                 type="email"
                 className="md:w-[400px]"
+                value={email}
+                required
               />
             </div>
             <div className="space-y-2 text-[#202224]/80">
@@ -45,15 +82,25 @@ export default function LoginView() {
                   Forget Password?
                 </Link>
               </div>
-              <Input type="password" placeholder="●●●●●●" />
+              <Input
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="●●●●●●"
+                value={password}
+                required
+              />
               <div className="flex gap-2 mt-2 items-center">
                 <Checkbox />
                 <Label>Remember Password</Label>
               </div>
             </div>
             <div className="mt-10 text-center">
-              <Button className="bg-[#4880FF] w-3/4 hover:bg-[#4880FF]/70">
-                Sign In
+              <Button
+                type="submit"
+                disabled={loading}
+                className="bg-[#4880FF] w-3/4 hover:bg-[#4880FF]/70"
+              >
+                {loading ? "Loading..." : "Sign In"}
               </Button>
               <div className="flex justify-center mt-2 md:text-sm text-xs font-medium items-center">
                 <p>Don&apos;t have an account?</p>
