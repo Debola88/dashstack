@@ -10,18 +10,16 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { APP_LINKS } from "@/constants/app-links";
-import { useState } from "react";
 
 export default function LoginView() {
-  const { push } = useRouter();
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +29,7 @@ export default function LoginView() {
     try {
       const response = await fetch("/api/auth/login", {
         method: "POST",
-        headers: { " Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
@@ -45,6 +43,7 @@ export default function LoginView() {
       router.push("/dashboard");
       router.refresh();
     } catch (err) {
+      console.error("Login error:", err); // Add this for debugging
       setError("Something went wrong");
     } finally {
       setLoading(false);
@@ -62,6 +61,11 @@ export default function LoginView() {
         <CardDescription className="text-sm max-md:text-xs text-[#202224]/80 w-full text-center -mt-5">
           Please enter your email and password to continue
         </CardDescription>
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mt-4">
+            {error}
+          </div>
+        )}
         <CardContent className="w-full p-0 mt-2">
           <form onSubmit={handleSubmit} className="w-full space-y-6">
             <div className="space-y-2 text-[#202224]/80">
@@ -108,7 +112,7 @@ export default function LoginView() {
                   variant="link"
                   type="button"
                   className="text-[#5A8CFF] underline cursor-pointer"
-                  onClick={() => push(APP_LINKS.SIGNUP_HOME)}
+                  onClick={() => router.push(APP_LINKS.SIGNUP_HOME)}
                 >
                   Create Account
                 </Button>

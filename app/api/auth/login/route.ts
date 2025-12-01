@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
                 user: {
                     id: user._id,
                     email: user.email,
-                    username: user.username,
+                    // username: user.username,
                 }
             }, { status: 200 }
         )
@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
             maxAge: 60 * 60 * 24 * 7,
             path: '/'
         })
-        
+
         return response;
 
     } catch (error) {
