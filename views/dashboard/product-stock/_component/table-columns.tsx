@@ -1,7 +1,11 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { ButtonGroup } from "@/components/ui/button-group";
 import { ColumnDef } from "@tanstack/react-table";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
+import { FaRegEdit } from "react-icons/fa";
+import { FiTrash2 } from "react-icons/fi";
 
 export type Order = {
   id?: string;
@@ -14,12 +18,24 @@ export type Order = {
 
 export const columns: ColumnDef<Order>[] = [
   {
-    accessorKey: "id",
-    header: "ID",
+    accessorKey: "image",
+    header: "Image",
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        <Image
+          src={row.original.image}
+          alt={row.original.productName}
+          width={40}
+          height={40}
+          className="rounded"
+        />
+        <span>{row.original.productName}</span>
+      </div>
+    ),
   },
   {
-    accessorKey: "clientName",
-    header: "Client Name",
+    accessorKey: "productName",
+    header: "Product Name",
     // filterFn: (row, id, value) => {
     //   const clientName = row.getValue(id) as string;
     //   const searchValue = value.toLowerCase();
@@ -40,34 +56,31 @@ export const columns: ColumnDef<Order>[] = [
     // },
   },
   {
-    accessorKey: "clientAddress",
-    header: "ADDRESS",
+    accessorKey: "category",
+    header: "Category",
   },
   {
-    accessorKey: "dateTime",
-    header: "DATE",
+    accessorKey: "price",
+    header: "Price",
   },
   {
-    accessorKey: "type",
-    header: "TYPE",
+    accessorKey: "piece",
+    header: "Piece",
   },
-{
-    accessorKey: "status",
-    header: "Status",
-    filterFn: (row, id, value) => {
-      return row.getValue(id) === value;
-    },
-    cell: ({ row }) => {
-      const status = row.original.status;
+  {
+    id: "actions",
+    header: "Actions",
+    cell: ({ row, table }) => {
       return (
-        <div
-          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-            status === "Completed"
-              ? "bg-green-100 text-green-800"
-              : "bg-orange-100 text-orange-800"
-          }`}
-        >
-          {status}
+        <div className="flex items-center gap-2">
+          <ButtonGroup>
+            <Button variant="outline" size="icon">
+              <FaRegEdit />
+            </Button>
+            <Button variant="outline" size="icon" className="text-red-500">
+              <FiTrash2 />
+            </Button>
+          </ButtonGroup>
         </div>
       );
     },
