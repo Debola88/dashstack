@@ -2,7 +2,7 @@
 
 export default function PriceCard () {
     return (
-        <div>
+        <div className="Card">
             
         </div>
     )
