@@ -1,12 +1,12 @@
-import FavoriteCard from "./_components/favorite-card";
+import ContactCard from "./_component/contact-card";
 
-export default function DashboardFavouriteView() {
+export default function DashboardContactView() {
   return (
     <div>
-      <h1 className="font-semibold text-2xl lg:px-3 mb-2">Favorite</h1>
+      <h1 className="font-semibold text-2xl lg:px-3 mb-2">Contact</h1>
       <div className="flex flex-1 flex-col ">
         <div className="@container/main grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <FavoriteCard />
+          <ContactCard />
         </div>
       </div>
     </div>

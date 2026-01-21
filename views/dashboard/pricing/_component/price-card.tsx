@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -8,8 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
-import React from "react"
-
+import React from "react";
 
 export default function PriceCard() {
   return (
@@ -22,9 +22,7 @@ export default function PriceCard() {
           <p>Monthly Charge</p>
         </CardDescription>
         <CardContent>
-          <p className="text-[#4880FF] text-3xl font-bold -mt-5">
-            $14.99
-          </p>
+          <p className="text-[#4880FF] text-3xl font-bold -mt-5">$14.99</p>
           <Separator className="my-10 border" />
           <ul className="space-y-3 text-sm font-semibold">
             <li>Free Setup</li>
@@ -46,7 +44,7 @@ export default function PriceCard() {
           </CardFooter>
         </CardContent>
       </Card>
-       <Card className="w-full text-center">
+      <Card className="w-full text-center">
         <CardHeader className="text-black font-semibold text-lg">
           Standard
         </CardHeader>
@@ -54,9 +52,7 @@ export default function PriceCard() {
           <p>Monthly Charge</p>
         </CardDescription>
         <CardContent>
-          <p className="text-[#4880FF] text-3xl font-bold -mt-5">
-            $49.99
-          </p>
+          <p className="text-[#4880FF] text-3xl font-bold -mt-5">$49.99</p>
           <Separator className="my-10 border" />
           <ul className="space-y-3 text-sm font-semibold">
             <li>Free Setup</li>
@@ -77,7 +73,7 @@ export default function PriceCard() {
             </Link>
           </CardFooter>
         </CardContent>
-      </Card> 
+      </Card>
       <Card className="w-full text-center">
         <CardHeader className="text-black font-semibold text-lg">
           Premium
@@ -86,9 +82,7 @@ export default function PriceCard() {
           <p>Monthly Charge</p>
         </CardDescription>
         <CardContent>
-          <p className="text-[#4880FF] text-3xl font-bold -mt-5">
-           $89.99
-          </p>
+          <p className="text-[#4880FF] text-3xl font-bold -mt-5">$89.99</p>
           <Separator className="my-10 border" />
           <ul className="space-y-3 text-sm font-semibold">
             <li>Free Setup</li>
@@ -100,9 +94,11 @@ export default function PriceCard() {
             <li>Custom Content management</li>
           </ul>
           <Separator className="my-10 border" />
-          <Button className="rounded-full bg-white text-[#4880FF] border-2 border-[#4880FF] p-5 hover:bg-[#4880FF] hover:text-white">
-            Get Started
-          </Button>
+          <CardAction>
+            <Button className="rounded-full bg-white text-[#4880FF] border-2 border-[#4880FF] p-5 hover:bg-[#4880FF] hover:text-white">
+              Get Started
+            </Button>
+          </CardAction>
           <CardFooter className="flex justify-center">
             <Link href="#" className="underline pt-4 text-sm">
               Start your 30 Days free trial
