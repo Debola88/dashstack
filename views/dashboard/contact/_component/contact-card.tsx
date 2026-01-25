@@ -3,6 +3,8 @@ import Image from "next/image";
 import placeImage from "@/assets/images/Bitmap (8).png";
 import { FaMessage } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
+import { LuMail } from "react-icons/lu";
+
 
 export default function ContactCard() {
   return (
@@ -13,14 +15,14 @@ export default function ContactCard() {
           alt=""
           width={250}
           height={250}
-          className="w-full"
+          className=""
         />
       </div>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center space-y-3">
         <p className="font-semibold">Jason Price</p>
         <p>kuhlman.jermey@yahoo.com</p>
-        <Button variant="outline" size="sm">
-          <FaMessage /> Message
+        <Button variant="outline" size="sm" className="">
+          <LuMail /> Message
         </Button>
       </div>
     </Card>
