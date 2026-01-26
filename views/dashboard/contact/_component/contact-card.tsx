@@ -8,17 +8,17 @@ import { LuMail } from "react-icons/lu";
 
 export default function ContactCard() {
   return (
-    <Card className="relative">
-      <div className=" top-0">
+    <Card className="w-[300px] py-0">
+      <div>
         <Image
           src={placeImage}
           alt=""
-          width={250}
-          height={250}
-          className=""
+          width={300}
+          height={300}
+          className="w-full rounded-xl-t rounded-t-lg"
         />
       </div>
-      <div className="flex flex-col items-center space-y-3">
+      <div className="flex flex-col items-center space-y-3 pb-5">
         <p className="font-semibold">Jason Price</p>
         <p>kuhlman.jermey@yahoo.com</p>
         <Button variant="outline" size="sm" className="">
