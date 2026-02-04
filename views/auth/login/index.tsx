@@ -112,7 +112,7 @@ export default function LoginView() {
                   variant="link"
                   type="button"
                   className="text-[#5A8CFF] underline cursor-pointer"
-                  onClick={() => router.push(APP_LINKS.SIGNUP_HOME)}
+                  // onClick={() => router.push(APP_LINKS.SIGNUP_DASHBOARD)}
                 >
                   Create Account
                 </Button>
