@@ -20,23 +20,25 @@ import { CiPower } from "react-icons/ci";
 import { useSidebar } from "@/context/sidebar-context";
 import clsx from "clsx";
 import { useEffect } from "react";
+import {APP_LINKS} from "@/constants/app-links"
+import Link from "next/link";
 
 const tabOne = [
-  { title: "Dashboard", icon: <RiDashboard3Line /> },
-  { title: "Products", icon: <LiaBorderAllSolid /> },
-  { title: "favorites", icon: <MdFavoriteBorder /> },
-  { title: "inbox", icon: <TiMessages /> },
-  { title: "Order Lists", icon: <TbListCheck /> },
-  { title: "Product Stock", icon: <LuRows3 /> },
+  { title: "Dashboard", icon: <RiDashboard3Line />, link: APP_LINKS.DASHBOARD_OVERVIEW},
+  { title: "Products", icon: <LiaBorderAllSolid />, link: APP_LINKS.DASHBOARD_PRODUCTS},
+  { title: "favorites", icon: <MdFavoriteBorder />, link: APP_LINKS.DASHBOARD_FAVORITE },
+  { title: "inbox", icon: <TiMessages />, link: APP_LINKS.DASHBOARD_OVERVIEW },
+  { title: "Order Lists", icon: <TbListCheck />, link: APP_LINKS.DASHBOARD_ORDERLIST },
+  { title: "Product Stock", icon: <LuRows3 />, link: APP_LINKS.DASHBOARD_PRODUCTSTOCK },
 ];
 
 const tabTwo = [
-  { title: "Pricing", icon: <CiGift /> },
-  { title: "Calendar", icon: <IoCalendarOutline /> },
-  { title: "To-Do", icon: <LiaClipboard /> },
-  { title: "Contact", icon: <IoPeopleOutline /> },
-  { title: "Invoice", icon: <BsCashStack /> },
-  { title: "UI Elements", icon: <LiaChartBarSolid /> },
+  { title: "Pricing", icon: <CiGift />, link: APP_LINKS.DASHBOARD_PRICING },
+  { title: "Calendar", icon: <IoCalendarOutline />, link: APP_LINKS.DASHBOARD_OVERVIEW },
+  { title: "Contact", icon: <IoPeopleOutline />, link: APP_LINKS.DASHBOARD_CONTACT  },
+  { title: "To-Do", icon: <LiaClipboard />, link: APP_LINKS.DASHBOARD_OVERVIEW  },
+  { title: "Invoice", icon: <BsCashStack />, link: APP_LINKS.DASHBOARD_OVERVIEW  },
+  { title: "UI Elements", icon: <LiaChartBarSolid />, link: APP_LINKS.DASHBOARD_OVERVIEW  },
   { title: "Team", icon: <AiOutlineUser /> },
   { title: "Table", icon: <LiaTableSolid /> },
 ];
@@ -102,7 +104,7 @@ export default function DashboardSidebar() {
           </div>
           <nav className="pt-4 space-y-1">
             {tabOne.map((tab, index) => (
-              <DashbordTab key={index} title={tab.title} icon={tab.icon} />
+              <Link key={index} href={tab.link}><DashbordTab key={index} title={tab.title} icon={tab.icon} /></Link>
             ))}
           </nav>
           <Separator className="my-4 text-[#D8D8D8]" />

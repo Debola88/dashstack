@@ -29,7 +29,7 @@ export const columns: ColumnDef<Order>[] = [
         className="rounded"
       />
     ),
-  },
+  },   
   {
     accessorKey: "productName",
     header: "Product Name",
