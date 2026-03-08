@@ -1,16 +1,16 @@
   export enum APP_LINKS {
-  LOGIN = "/",
+  // LOGIN = "/",
 
   // Dashboard
-  DASHBOARD_OVERVIEW = "/dashboard",
-  DASHBOARD_CALENDER = "/dashboard/calender",
-  DASHBOARD_CONTACT = "/dashboard/contact",
-  DASHBOARD_FAVORITE = "/dashboard/favorites",
-  DASHBOARD_INBOX = "/dashboard/inbox",
-  DASHBOARD_ORDERLIST = "/dashboard/order-list",
-  DASHBOARD_PRICING = "/dashboard/pricing",
-  DASHBOARD_PRODUCTSTOCK = "/dashboard/product-stock",
-  DASHBOARD_PRODUCTS = "/dashboard/products",
+  DASHBOARD_OVERVIEW = "/",
+  DASHBOARD_CALENDER = "/calender",
+  DASHBOARD_CONTACT = "/contact",
+  DASHBOARD_FAVORITE = "/favorites",
+  DASHBOARD_INBOX = "/inbox",
+  DASHBOARD_ORDERLIST = "/order-list",
+  DASHBOARD_PRICING = "/pricing",
+  DASHBOARD_PRODUCTSTOCK = "/product-stock",
+  DASHBOARD_PRODUCTS = "/products",
 //   DASHBOARD_CONTACT = "/dashboard/trash",
 
 
