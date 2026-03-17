@@ -144,7 +144,7 @@ export default function SignUpView() {
                   variant="link"
                   type="button"
                   className="text-[#5A8CFF] underline cursor-pointer"
-                  onClick={() => push(APP_LINKS.LOGIN)}
+                  // onClick={() => push(APP_LINKS.LOGIN)}
                 >
                   Login
                 </Button>

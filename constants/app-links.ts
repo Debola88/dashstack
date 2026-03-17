@@ -11,7 +11,6 @@
   DASHBOARD_PRICING = "/pricing",
   DASHBOARD_PRODUCTSTOCK = "/product-stock",
   DASHBOARD_PRODUCTS = "/products",
-//   DASHBOARD_CONTACT = "/dashboard/trash",
 
 
 
